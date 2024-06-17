@@ -25,8 +25,8 @@ const Search = ({ movies }) => {
         {filteredMovies.map((movie) => (
           <MovieCard
             key={movie.id}
+            movieTitle={movie.title}
             img={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            movieTitle={movie.original_title}
             votingAverage={movie.vote_average} 
           />
         ))}

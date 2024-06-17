@@ -8,7 +8,7 @@ import Footer from "./Components/Footer/Footer.jsx";
 const App = () => {
   return (
     <>
-      <Header title="Header"/>
+      <Header title="Flixster"/>
       <MovieList />
       <Footer />
     </>
