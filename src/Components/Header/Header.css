@@ -1,3 +1,10 @@
-div {
-    background-color: blue;
+.app-header {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+
+    padding: 20px;
+    text-align: center;
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }

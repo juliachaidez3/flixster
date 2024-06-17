@@ -1,28 +1,18 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
+.app{
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  color: white;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 50vh;
+  background: linear-gradient(to bottom, #ffffff, #e6e6e6);
   padding: 20px;
+  gap: 20px;
+  align-content: flex-start;
 }
 
-@media (max-width: 600px) {
-  .movie-card {
-    width: 100%;
-  }
-
-  .search-bar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .search-bar form {
-    flex-direction: column;
-  }
+h1 {
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
