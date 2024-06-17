@@ -9,7 +9,6 @@ const App = () => {
   return (
     <>
       <Header title="Header"/>
-      {/* <Search /> */}
       <MovieList />
       <Footer />
     </>

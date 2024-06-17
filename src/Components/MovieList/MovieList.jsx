@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from "react"
 import MovieCard from "../MovieCard/MovieCard.jsx";
+import Search from '../Search/Search.jsx';
 import "./MovieList.css"
 
 const MovieList = () => {
@@ -17,10 +18,11 @@ const MovieList = () => {
     }
     fetchMovies();
   }, []);
-
+console.log(movies);
   return (
     <>
-      <div className="movie-list">
+      <Search movies={movies}/>
+      {/* <div className="movie-list">
         {movies.map((movie) => (
           <MovieCard
             key={movie.id}
@@ -29,7 +31,7 @@ const MovieList = () => {
             votingAverage={movie.vote_average} 
           />
         ))}
-      </div>
+      </div> */}
     </>
   )
 }
