@@ -1,6 +1,7 @@
 import React from 'react'
-import "./MovieList.css"
 import {useState, useEffect} from "react"
+import MovieCard from "../MovieCard/MovieCard.jsx";
+import "./MovieList.css"
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -21,13 +22,15 @@ const MovieList = () => {
     <>
       <div className="movie-list">
         {movies.map((movie) => (
-          <div className="movie-item" key={movie.id}>
-            <p>Movie: {movie.original_title}</p>
-          </div>
+          <MovieCard
+            key={movie.id}
+            img={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            movieTitle={movie.original_title}
+            votingAverage={movie.vote_average} 
+          />
         ))}
       </div>
     </>
-    
   )
 }
 

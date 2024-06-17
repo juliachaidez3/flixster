@@ -5,8 +5,8 @@ const MovieCard = (props) => {
     return (
     <>
         <div className="card">
-            <img src={props.imageURL} alt={props.movieTitle} />
-            <h2>{props.movieTitle}</h2>
+            <img src={props.img} alt={props.movieTitle} />
+            <h2>{props.title}</h2>
             <h4>Voting Average: {props.votingAverage}</h4>
         </div>
     </>
