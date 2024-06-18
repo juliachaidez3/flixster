@@ -7,6 +7,7 @@ const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const[currentPage, setCurrentPage] = useState(1);
 
+
   useEffect(() => {
     fetchMovies(currentPage);
   }, []);
