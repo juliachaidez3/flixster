@@ -19,7 +19,9 @@ const fetchMovies = async (page) => {
   const data = await response.json();
   setMovies((prevMovies) => {
     const newMovies = data.results.filter(movie => !prevMovies.some(prevMovie => prevMovie.id === movie.id));
+    console.log(data.results);
     return [...prevMovies, ...newMovies];
+    
     });
 };
 

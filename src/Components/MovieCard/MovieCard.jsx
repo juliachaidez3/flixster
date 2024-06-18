@@ -1,13 +1,13 @@
 import React from "react";
 import "./MovieCard.css"
 
-const MovieCard = (props) => {
+const MovieCard = ({movieTitle, img, votingAverage, onClick}) => {
     return (
     <>
-        <div className="card">
-            <img src={props.img} alt={props.movieTitle} />
-            <h2>{props.title}</h2>
-            <h4>Voting Average: {props.votingAverage}</h4>
+        <div className="card" onClick={onClick}>
+            <img src={img} alt={movieTitle} />
+            <h2>{movieTitle}</h2>
+            <h4>Voting Average: {votingAverage}</h4>
         </div>
     </>
     )
