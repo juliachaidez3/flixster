@@ -19,7 +19,14 @@
 
 #load-more-btn {
   margin:0 auto;
-    display:block;
-    padding: 5px;
-  background-color: blue;
+  display:block;
+  background-color: #444444;
+  color: #ffffff;
+  border: 1px solid #555555;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#load-more-btn:hover {
+  background-color: #555555;
 }

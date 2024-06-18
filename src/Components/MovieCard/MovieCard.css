@@ -7,6 +7,7 @@
     background: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
     margin-bottom: 20px;
     overflow: hidden;
+    font-family: "Times New Roman", Times, serif;
 }
 
 .card img {

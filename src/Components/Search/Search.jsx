@@ -10,6 +10,7 @@ const Search = ({ movies }) => {
   const [selected, setSelected] = useState(null);
   const [sortOption, setSortOption] = useState('');
   const [sortedMovies, setSortedMovies] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     setSortedMovies(movies);
@@ -77,9 +78,18 @@ const Search = ({ movies }) => {
       }).join(', ');
   };
 
+  const toggleDarkMode = () => {
+
+    setIsDarkMode(!isDarkMode);
+
+
+}
+
   return (
     <>
-      <div className="search-container">
+    <div className={isDarkMode ? 'dark-mode' : ''}>
+    <div className="nav-bar">
+    <div className={`nav-bar-item search-bar`}>
         <input
           type="text"
           placeholder="Search Movie..."
@@ -90,7 +100,7 @@ const Search = ({ movies }) => {
       </div>
 
       {/* Sort Functionality */}
-      <div>
+      <div className="nav-bar-item">
         <label htmlFor="sort-options">Sort by: </label>
         <select id="sort-options" value={sortOption} onChange={handleSortChange}>
           <option value="">Select</option>
@@ -98,7 +108,9 @@ const Search = ({ movies }) => {
           <option value="release-date">Release Date</option>
           <option value="rating">Rating</option>
         </select>
-        
+    </div>
+
+      <button className="nav-bar-item" onClick={toggleDarkMode}>{isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}</button>
       </div>
 
       <div className="movie-list">
@@ -112,6 +124,8 @@ const Search = ({ movies }) => {
           />
         ))}
     </div>
+
+  
         
 
 
@@ -137,8 +151,10 @@ const Search = ({ movies }) => {
         </Modal>
       )}
 
+      
 
 
+  </div>
     </>
   );
 };
