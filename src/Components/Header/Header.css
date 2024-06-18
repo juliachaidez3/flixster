@@ -1,10 +1,27 @@
 .app-header {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./flixter_background.jpeg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 
-    padding: 20px;
+    letter-spacing: 7px;
+
+    padding: 100px;
     text-align: center;
     font-size: 26px;
-    font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Times New Roman", Times, serif;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
     border-radius: 5px;
+    /* text-shadow: rgba(255,162,0,0.74) 0px 0px 34px; */
+    text-shadow: rgba(255,162,0,0.9) 0px 0px 39px;
+}
+
+#description {
+    color: white;
+    font-size: 20px;
+    letter-spacing: normal;
 }

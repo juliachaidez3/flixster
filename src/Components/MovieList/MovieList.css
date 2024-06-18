@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    min-height: 50vh;
+    /* min-height: 50vh; */
     background: linear-gradient(to bottom, #ffffff, #e6e6e6);
     padding: 20px;
     gap: 20px;
@@ -16,3 +16,10 @@
     color: #ffffff;
     margin-bottom: 20px;
   }
+
+#load-more-btn {
+  margin:0 auto;
+    display:block;
+    padding: 5px;
+  background-color: blue;
+}

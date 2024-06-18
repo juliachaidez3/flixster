@@ -47,6 +47,19 @@ const Search = ({ movies }) => {
         />
       </div>
 
+      {/* Sort Functionality */}
+      <div className="movie-list">
+          <select onChange={(e) => {
+            const c = filteredMovies.find((x) => x.id === parseInt(e.target.value));
+            setSelected(c);
+            }}>
+            {filteredMovies.map((movie) => (
+              <option key={movie.id} value={movie.id}>{movie.release_date}</option>
+            ))}
+          </select>
+          {selected && <MovieCard movieTitle={selected.release_date} />}
+        </div>
+
       <div className="movie-list">
         {filteredMovies.map((movie) => (
           <MovieCard
@@ -58,18 +71,7 @@ const Search = ({ movies }) => {
           />
         ))}
       </div>
-        {/* Sort Functionality */}
-        <div className="movie-list">
-          <select onChange={(e) => {
-            const c = filteredMovies.find((x) => x.id === parseInt(e.target.value));
-            setSelected(c);
-            }}>
-            {filteredMovies.map((movie) => (
-              <option key={movie.id} value={movie.id}>{movie.release_date}</option>
-            ))}
-          </select>
-          {selected && <MovieCard movieTitle={selected.release_date} />}
-        </div>
+        
 
 
        {/* Only display Modal when pokemoncard is clicked/selected */}

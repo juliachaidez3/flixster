@@ -1,0 +1,17 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.search-input {
+    width: -webkit-fill-available;
+}
+
+.movie-list {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+}

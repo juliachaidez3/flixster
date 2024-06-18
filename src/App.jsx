@@ -10,7 +10,7 @@ const App = () => {
     <>
       <Header title="Flixster"/>
       <MovieList />
-      <Footer />
+      <Footer title="Designed By Julia Chaidez"/>
     </>
   )
 }
