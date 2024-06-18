@@ -8,8 +8,14 @@ const Search = ({ movies }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [genres, setGenres] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [sortOption, setSortOption] = useState('');
+  const [sortedMovies, setSortedMovies] = useState([]);
 
-  const filteredMovies = movies.filter((movie) =>
+  useEffect(() => {
+    setSortedMovies(movies);
+  }, [movies]);
+
+  const filteredMovies = sortedMovies.filter((movie) =>
     movie.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -31,8 +37,44 @@ const Search = ({ movies }) => {
     fetchGenres();
   }, []);
 
+  {/* Sort Functionality */}
+  const handleSortChange = (event) => {
+    const selectedOption = event.target.value;
+    setSortOption(selectedOption);
+
+    let sortedMovies = [...movies];
+    if (selectedOption === 'release-date') {
+      sortedMovies.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
+
+      {sortedMovies.map((movie, index) => (
+        <p key={index}>{movie.title} - {movie.release_date}</p>
+        ))}
+
+    }
+    if (selectedOption === 'alphabetic-order') {
+      sortedMovies.sort((a,b) => a.title.localeCompare(b.title));
+
+      {sortedMovies.map((movie, index) => (
+        <p key={index}>{movie.title}</p>
+        ))}
+
+    }
+    if (selectedOption === 'rating') {
+      sortedMovies.sort((a,b) => b.vote_average-a.vote_average);
+
+      {sortedMovies.map((movie, index) => (
+        <p key={index}>{movie.title} - {movie.vote_average}</p>
+        ))}
+    }
+    setSortedMovies(sortedMovies);
+  };
+
   const getGenreNames = (genreIds) => {
-    return genreIds.map(id => genres.find(genre => genre.id === id).name).join(', ');
+    // return genreIds.map(id => genres.find(genre => genre.id === id).name).join(', ');
+    return genreIds.map(id => {
+      const genre = genres.find(genre => genre.id === id);
+      return genre ? genre.name : 'Unknown';
+      }).join(', ');
   };
 
   return (
@@ -48,17 +90,16 @@ const Search = ({ movies }) => {
       </div>
 
       {/* Sort Functionality */}
-      <div className="movie-list">
-          <select onChange={(e) => {
-            const c = filteredMovies.find((x) => x.id === parseInt(e.target.value));
-            setSelected(c);
-            }}>
-            {filteredMovies.map((movie) => (
-              <option key={movie.id} value={movie.id}>{movie.release_date}</option>
-            ))}
-          </select>
-          {selected && <MovieCard movieTitle={selected.release_date} />}
-        </div>
+      <div>
+        <label htmlFor="sort-options">Sort by: </label>
+        <select id="sort-options" value={sortOption} onChange={handleSortChange}>
+          <option value="">Select</option>
+          <option value="alphabetic-order">Alphabetic Order</option>
+          <option value="release-date">Release Date</option>
+          <option value="rating">Rating</option>
+        </select>
+        
+      </div>
 
       <div className="movie-list">
         {filteredMovies.map((movie) => (
@@ -70,7 +111,7 @@ const Search = ({ movies }) => {
             onClick={() => setSelectedMovie(movie)}
           />
         ))}
-      </div>
+    </div>
         
 
 

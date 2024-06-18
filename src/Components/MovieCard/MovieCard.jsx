@@ -7,7 +7,7 @@ const MovieCard = ({movieTitle, img, votingAverage, onClick}) => {
         <div className="card" onClick={onClick}>
             <img src={img} alt={movieTitle} />
             <h2>{movieTitle}</h2>
-            <h4>Voting Average: {votingAverage}</h4>
+            <h4>⭐️ {votingAverage}</h4>
         </div>
     </>
     )
