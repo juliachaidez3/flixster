@@ -7,6 +7,7 @@ const Search = ({ movies }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [genres, setGenres] = useState([]);
+  const [selected, setSelected] = useState(null);
 
   const filteredMovies = movies.filter((movie) =>
     movie.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -57,6 +58,19 @@ const Search = ({ movies }) => {
           />
         ))}
       </div>
+        {/* Sort Functionality */}
+        <div className="movie-list">
+          <select onChange={(e) => {
+            const c = filteredMovies.find((x) => x.id === parseInt(e.target.value));
+            setSelected(c);
+            }}>
+            {filteredMovies.map((movie) => (
+              <option key={movie.id} value={movie.id}>{movie.release_date}</option>
+            ))}
+          </select>
+          {selected && <MovieCard movieTitle={selected.release_date} />}
+        </div>
+
 
        {/* Only display Modal when pokemoncard is clicked/selected */}
       {/* If selected pokemon is not null then show modal.... */}
@@ -76,9 +90,12 @@ const Search = ({ movies }) => {
           />
           <h3>Release Date: {selectedMovie.release_date}</h3>
           <h4>Overview: {selectedMovie.overview}</h4>
-          <h4>Genres: {getGenreNames(selectedMovie.genre_ids)}</h4>
+          <h5>Genres: {getGenreNames(selectedMovie.genre_ids)}</h5>
         </Modal>
       )}
+
+
+
     </>
   );
 };
